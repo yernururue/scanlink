@@ -1,0 +1,203 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #eceae3;
+  color: #161616;
+}
+
+body {
+  font-family: var(--font-plex-mono), monospace;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+input:focus {
+  outline: 2px solid #0a66c2;
+}
+
+::selection {
+  background: #0a66c2;
+  color: #fff;
+}
+
+/* dotted paper background used across all screens */
+.dotGrid {
+  background-color: #eceae3;
+  background-image: radial-gradient(rgba(20, 20, 20, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* hover utilities — the design source expresses hover states per element;
+   inline styles can't do :hover, so they live here and win via !important */
+.hovTextBlue:hover {
+  color: #0a66c2 !important;
+}
+.hovBgBlue:hover {
+  background: #0a66c2 !important;
+}
+.hovBgBlueWhite:hover {
+  background: #0a66c2 !important;
+  color: #fff !important;
+}
+.hovBgBlueBorder:hover {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+}
+.hovBgBlueWhiteBorder:hover {
+  background: #0a66c2 !important;
+  color: #fff !important;
+  border-color: #0a66c2 !important;
+}
+.hovInvert:hover {
+  background: #161616 !important;
+  color: #eceae3 !important;
+}
+.hovBgBlueDark:hover {
+  background: #084b8f !important;
+}
+.hovBorderBlue:hover {
+  border-color: #0a66c2 !important;
+}
+
+/* responsive grids — desktop matches the design source exactly;
+   below the breakpoints everything collapses to readable single columns */
+.navLinks {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+@media (max-width: 760px) {
+  .navLinks {
+    display: none;
+  }
+  .navSpacer {
+    flex: 1;
+  }
+}
+
+.rawGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 860px) {
+  .rawGrid {
+    grid-template-columns: 1fr;
+  }
+  .rawGrid > div {
+    border-right: none !important;
+    border-top: 1px solid #161616 !important;
+  }
+  .rawGrid > div:first-child {
+    border-top: none !important;
+  }
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+}
+@media (max-width: 860px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+  .aboutGrid > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid #161616;
+  }
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+@media (max-width: 960px) {
+  .priceGrid {
+    grid-template-columns: 1fr;
+  }
+  .proCard {
+    transform: none !important;
+  }
+}
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+@media (max-width: 860px) {
+  .mediaGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .mediaGrid > div {
+    border-top: 1px solid #161616;
+  }
+  .mediaGrid > div:nth-child(-n + 3) {
+    border-top: none;
+  }
+  .mediaGrid > div:nth-child(3n) {
+    border-right: none !important;
+  }
+}
+
+.reportGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+@media (max-width: 860px) {
+  .reportGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loginGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 560px) {
+  .loginGrid {
+    grid-template-columns: 1fr;
+  }
+}
